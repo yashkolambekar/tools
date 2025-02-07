@@ -7,17 +7,18 @@ import MainConversionApp from "./MainConversionApp/MainConversionApp";
 
 const ServerRatesInINR = ({ data }: { data: IToolInfo }) => {
   const [rate, setRate] = useState<number>(0);
+  const [curr, setCurr] = useState<string>("USD");
   useEffect(() => {
-    fetchRates().then((res) => {
+    fetchRates(curr).then((res) => {
       setRate(res?.rate);
     });
-  }, []);
+  }, [curr]);
 
   return (
     <>
       <ToolTitle data={data} />
-      <ConversionRateDisplay rate={rate} />
-      <MainConversionApp rate={rate} />
+      <ConversionRateDisplay curr={curr} rate={rate} />
+      <MainConversionApp setCurr={setCurr} curr={curr} rate={rate} />
     </>
   );
 };

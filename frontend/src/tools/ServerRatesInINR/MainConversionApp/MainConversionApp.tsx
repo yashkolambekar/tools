@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PerTimeCard from "./PerTimeCard";
 
-const MainConversionApp = ({ rate }: { rate: number }) => {
+const MainConversionApp = ({ rate, curr, setCurr }: { rate: number, curr: string, setCurr: Function }) => {
   const [usd, setUsd] = useState<number | "">(1);
 
   const times = [
@@ -43,7 +43,14 @@ const MainConversionApp = ({ rate }: { rate: number }) => {
             type="number"
             className="bg-[rgb(25,25,25)] p-2 w-[5em] mr-2 text-center rounded-md"
           />
-          USD / hour
+          <select onChange={(e) => {
+              setCurr(e.target.value);
+          }}>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+          </select>
+           / hour
         </div>
       </div>
       <div>
