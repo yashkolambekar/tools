@@ -18,7 +18,7 @@ const ServerRatesInINR = ({ data }: { data: IToolInfo }) => {
     <>
       <ToolTitle data={data} />
       <ConversionRateDisplay curr={curr} rate={rate} />
-      <MainConversionApp setCurr={setCurr} curr={curr} rate={rate} />
+      <MainConversionApp setCurr={setCurr} rate={rate} />
     </>
   );
 };

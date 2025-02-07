@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PerTimeCard from "./PerTimeCard";
 
-const MainConversionApp = ({ rate, curr, setCurr }: { rate: number, curr: string, setCurr: Function }) => {
+const MainConversionApp = ({ rate, setCurr }: { rate: number, setCurr: Function }) => {
   const [usd, setUsd] = useState<number | "">(1);
 
   const times = [
